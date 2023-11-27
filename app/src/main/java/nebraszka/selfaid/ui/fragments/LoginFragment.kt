@@ -1,5 +1,6 @@
 package nebraszka.selfaid.ui.fragments
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -31,7 +32,7 @@ class LoginFragment : Fragment() {
 
         binding.btnLogin.setOnClickListener {
             val intent = Intent(this.context, EmotionJournalActivity::class.java)
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this.activity).toBundle())
         }
 
         binding.btnRegister.setOnClickListener {

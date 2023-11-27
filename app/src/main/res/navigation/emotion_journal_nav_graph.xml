@@ -12,10 +12,14 @@
         tools:layout="@layout/fragment_entry_list" >
         <action
             android:id="@+id/action_entryListFragment_to_newEntryFragment"
-            app:destination="@id/newEntryFragment" />
+            app:destination="@id/newEntryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
         <action
             android:id="@+id/action_entryListFragment_to_entryFragment"
-            app:destination="@id/entryFragment" />
+            app:destination="@id/entryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/newEntryFragment"
@@ -24,7 +28,9 @@
         tools:layout="@layout/fragment_new_entry" >
         <action
             android:id="@+id/action_newEntryFragment_to_entryListFragment"
-            app:destination="@id/entryListFragment" />
+            app:destination="@id/entryListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/entryFragment"
@@ -33,6 +39,8 @@
         tools:layout="@layout/fragment_entry" >
         <action
             android:id="@+id/action_entryFragment_to_entryListFragment"
-            app:destination="@id/entryListFragment" />
+            app:destination="@id/entryListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>
