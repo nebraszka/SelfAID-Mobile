@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/emotion_journal_nav_graph"
+    app:startDestination="@id/entryListFragment">
+
+    <fragment
+        android:id="@+id/entryListFragment"
+        android:name="nebraszka.selfaid.ui.fragments.EntryListFragment"
+        android:label="fragment_entry_list"
+        tools:layout="@layout/fragment_entry_list" >
+        <action
+            android:id="@+id/action_entryListFragment_to_newEntryFragment"
+            app:destination="@id/newEntryFragment" />
+        <action
+            android:id="@+id/action_entryListFragment_to_entryFragment"
+            app:destination="@id/entryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newEntryFragment"
+        android:name="nebraszka.selfaid.ui.fragments.NewEntryFragment"
+        android:label="fragment_new_entry"
+        tools:layout="@layout/fragment_new_entry" >
+        <action
+            android:id="@+id/action_newEntryFragment_to_entryListFragment"
+            app:destination="@id/entryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/entryFragment"
+        android:name="nebraszka.selfaid.ui.fragments.EntryFragment"
+        android:label="fragment_entry"
+        tools:layout="@layout/fragment_entry" >
+        <action
+            android:id="@+id/action_entryFragment_to_entryListFragment"
+            app:destination="@id/entryListFragment" />
+    </fragment>
+</navigation>
