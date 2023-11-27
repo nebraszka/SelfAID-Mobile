@@ -1,6 +1,6 @@
-package pl.nebraszka.selfaid.enums
+package nebraszka.selfaid.enums
 
-import pl.nebraszka.selfaid.R
+import nebraszka.selfaid.R
 
 enum class ExerciseType(val id: Int, val layoutId: Int, val topicTextView: Int) {
 
