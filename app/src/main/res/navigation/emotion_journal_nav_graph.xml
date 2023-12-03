@@ -16,7 +16,7 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
         <action
-            android:id="@+id/action_entryListFragment_to_entryFragment"
+            android:id="@+id/action_entryListFragment_to_savedEntryFragment"
             app:destination="@id/entryFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
@@ -34,11 +34,11 @@
     </fragment>
     <fragment
         android:id="@+id/entryFragment"
-        android:name="nebraszka.selfaid.ui.fragments.EntryFragment"
+        android:name="nebraszka.selfaid.ui.fragments.SavedEntryFragment"
         android:label="fragment_entry"
-        tools:layout="@layout/fragment_entry" >
+        tools:layout="@layout/fragment_saved_entry" >
         <action
-            android:id="@+id/action_entryFragment_to_entryListFragment"
+            android:id="@+id/action_savedEntryFragment_to_entryListFragment"
             app:destination="@id/entryListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />

@@ -22,14 +22,14 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
-            entity = EJExercise::class,
+            entity = Exercise::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("exercise_id"),
             onDelete = ForeignKey.CASCADE
         )
     ]
 )
-data class EJRespond(
+data class Respond(
     @NonNull
     @ColumnInfo(name = "exercise_id", index = true) val exerciseId: Int,
     @NonNull

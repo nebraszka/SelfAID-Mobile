@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         childColumns = arrayOf("emotion_id"),
         onDelete = CASCADE
     ), ForeignKey(
-        entity = EJEntry::class,
+        entity = Entry::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("entry_id"),
         onDelete = CASCADE

@@ -15,7 +15,7 @@ import androidx.room.PrimaryKey
         onDelete = ForeignKey.CASCADE
     )]
 )
-data class EJExercise(
+data class Exercise(
     @NonNull
     @ColumnInfo(name = "topic") val topic: String,
     @NonNull

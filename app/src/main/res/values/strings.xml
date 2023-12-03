@@ -2,6 +2,9 @@
     <string name="app_name">SelfAID</string>
     <string name="title_activity_main">MainActivity</string>
 
+    <string name="database_name">selfaid.db</string>
+    <string name="database_path">database/selfaid.db</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="login_fragment_label">Zaloguj się</string>
     <string name="register_fragment_label">Zarejestruj się</string>
@@ -51,6 +54,12 @@
     <string name="Date_Dialog_Choose_Date">Wybierz datę</string>
     <string name="EJ_List_Entry_Name">Data\nTytuł</string>
 
+    <!-- Delete dialog -->
+    <string name="Delete_Dialog_Question">Czy na pewno chcesz usunąć wpis?</string>
+    <string name="Delete_Dialog_Confirm">Tak</string>
+    <string name="Delete_Dialog_Cancel">Nie</string>
+
+
     <string name="EJ_SavedEntry_ChosenEmotion">Wybrana emocja:</string>
 
     <string name="lorem_ipsum">
@@ -93,4 +102,5 @@
     <string name="Main_Password_Hint">Hasło</string>
     <string name="Main_Login_Btn">Zaloguj się</string>
     <string name="Main_Register_Btn">Zarejestruj się</string>
+    <string name="new_entry_button_when_entry_list_is_not_empty">New entry button when entry list is not empty</string>
 </resources>

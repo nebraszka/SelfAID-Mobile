@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "TB_EJ_Entries")
-data class EJEntry(
+data class Entry(
     @NonNull
     @ColumnInfo(name = "date") var date: String,
     @ColumnInfo(name = "title") var title: String? = null

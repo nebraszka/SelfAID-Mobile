@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
     tableName = "TB_Answer_Suggest",
     foreignKeys = [
         ForeignKey(
-            entity = EJExercise::class,
+            entity = Exercise::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("question_id"),
             onDelete = ForeignKey.CASCADE

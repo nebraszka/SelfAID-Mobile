@@ -9,10 +9,10 @@ import android.view.ViewGroup
 import nebraszka.selfaid.R
 import nebraszka.selfaid.ui.viewmodels.EntryViewModel
 
-class EntryFragment : Fragment() {
+class SavedEntryFragment : Fragment() {
 
     companion object {
-        fun newInstance() = EntryFragment()
+        fun newInstance() = SavedEntryFragment()
     }
 
     private lateinit var viewModel: EntryViewModel
@@ -21,7 +21,7 @@ class EntryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_entry, container, false)
+        return inflater.inflate(R.layout.fragment_saved_entry, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

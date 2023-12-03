@@ -5,17 +5,17 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import nebraszka.selfaid.data.entities.EJAnswer
-import nebraszka.selfaid.data.entities.EJRespond
+import nebraszka.selfaid.data.entities.Answer
+import nebraszka.selfaid.data.entities.Respond
 
 @Dao
 interface EJRespondDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     @JvmSuppressWildcards
-    suspend fun insertAllResponds(responds: List<EJRespond>)
+    suspend fun insertAllResponds(responds: List<Respond>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertRespond(respond: EJRespond)
+    suspend fun insertRespond(respond: Respond)
 
     @Query(
         "SELECT responds.text_answer, suggest.answer " +
@@ -32,5 +32,5 @@ interface EJRespondDao {
                 "LEFT JOIN TB_Answer_Suggest AS suggest " +
                 "ON responds.chosen_answer=suggest.id"
     )
-    fun getRespondsForExercise(entryId: Int, page: Int, exerciseId: Int): Flow<List<EJAnswer>>
+    fun getRespondsForExercise(entryId: Int, page: Int, exerciseId: Int): Flow<List<Answer>>
 }

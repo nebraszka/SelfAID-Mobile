@@ -5,20 +5,20 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import nebraszka.selfaid.data.entities.EJEntry
+import nebraszka.selfaid.data.entities.Entry
 import nebraszka.selfaid.data.entities.Emotion
 
 @Dao
 interface EJEntryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(ejEntry: EJEntry): Long
+    suspend fun insert(entry: Entry): Long
 
     @Query("SELECT * FROM TB_EJ_Entries WHERE id=:entryId")
-    fun getEntry(entryId: Int): Flow<EJEntry>
+    fun getEntry(entryId: Int): Flow<Entry>
 
     @Query("SELECT * FROM TB_EJ_Entries ORDER BY date DESC")
-    fun getAllEntries(): Flow<List<EJEntry>>
+    fun getAllEntries(): Flow<List<Entry>>
 
     @Query("SELECT COUNT(*) FROM TB_EJ_Entries")
     fun countEntries(): Flow<Int>
