@@ -103,4 +103,6 @@
     <string name="Main_Login_Btn">Zaloguj się</string>
     <string name="Main_Register_Btn">Zarejestruj się</string>
     <string name="new_entry_button_when_entry_list_is_not_empty">New entry button when entry list is not empty</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

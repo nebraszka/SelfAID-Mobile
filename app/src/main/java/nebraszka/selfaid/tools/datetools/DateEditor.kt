@@ -4,6 +4,7 @@ class DateEditor {
 
     companion object {
         fun reverseDate(date: String): String {
+            // TODO - fix it
 //            return if (date[3] == '/') {
 //                (date.substring(10, 14) + " / "
 //                        + date.substring(5, 7) + " / "

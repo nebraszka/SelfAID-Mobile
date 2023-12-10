@@ -1,8 +1,10 @@
 package nebraszka.selfaid.ui.adapters
 
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
 import nebraszka.selfaid.data.entities.Entry
@@ -49,13 +51,14 @@ class EntryViewHolder(private val binding: RowEntryBinding) :
         binding.btnDeleteEntry.backgroundTintList = itemView.context.resources.getColorStateList(color)
     }
 
-//    fun setUpEntryClickListener() {
-//        itemView.btnEntry.setOnClickListener {
-//            val intent = Intent(context, SavedEntry::class.java)
-//            intent.putExtra("EXTRA_ENTRY_ID", itemView.id)
-//            context.startActivity(intent)
-//        }
-//    }
+    fun setUpEntryClickListener() {
+        binding.btnEntry.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putInt("EXTRA_ENTRY_ID", itemView.id)
+            itemView.findNavController().navigate(R.id.action_entryListFragment_to_savedEntryFragment, bundle)
+        }
+    }
+
 
     fun setUpDeleteClickListener(viewModel: EntryListViewModel){
         binding.btnDeleteEntry.setOnClickListener {

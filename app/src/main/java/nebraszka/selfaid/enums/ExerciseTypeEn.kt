@@ -2,7 +2,7 @@ package nebraszka.selfaid.enums
 
 import nebraszka.selfaid.R
 
-enum class ExerciseType(val id: Int, val layoutId: Int, val topicTextView: Int) {
+enum class ExerciseTypeEn(val id: Int, val layoutId: Int, val topicTextView: Int) {
 
     VIEW_SCALE_QUESTION(1, R.layout.row_scale_question, R.id.tvScaleQuestionRow),
     VIEW_CHOOSE_OPTION(2, R.layout.row_choose_option, R.id.tvChooseAnswerRow),
@@ -11,8 +11,8 @@ enum class ExerciseType(val id: Int, val layoutId: Int, val topicTextView: Int) 
     VIEW_MULTICHOOSE_OPTION(5, R.layout.row_choose_option, R.id.tvChooseAnswerRow);
 
     companion object {
-        fun findById(id: Int): ExerciseType? {
-            return ExerciseType.values().find { it.id == id }
+        fun findById(id: Int): ExerciseTypeEn? {
+            return ExerciseTypeEn.values().find { it.id == id }
         }
     }
 }

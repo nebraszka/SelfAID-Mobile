@@ -58,13 +58,4 @@ class SelfAIDRepository(
     suspend fun insertResponds(responds: List<Respond>) {
         ejRespondDao.insertAllResponds(responds)
     }
-
-    fun getAllEntries(): List<Entry> {
-        val entries: MutableList<Entry> = mutableListOf()
-        // add some hard-coded entries
-        entries += Entry("03/12/2001", "Entry 1")
-        entries += Entry("03/12/2010", "Entry 2")
-        return entries;
-    }
-
 }

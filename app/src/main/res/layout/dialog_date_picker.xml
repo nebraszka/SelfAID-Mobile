@@ -15,7 +15,7 @@
         android:textStyle="bold" />
 
     <DatePicker
-        android:id="@+id/EJDatePicker"
+        android:id="@+id/DatePicker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

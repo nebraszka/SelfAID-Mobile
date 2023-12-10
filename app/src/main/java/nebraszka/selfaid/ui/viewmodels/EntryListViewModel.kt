@@ -19,8 +19,8 @@ import nebraszka.selfaid.data.entities.Entry
  * - deleteEntryById
  */
 class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel() {
-        val allEntries = repository.getAllEntries()
-    //        val allEntries = repository.allEntries.asLiveData() // VERSION FOR DB
+
+    val allEntries = repository.allEntries.asLiveData()
 fun deleteByEntryId(entryId: Int) = viewModelScope.launch{
         repository.deleteByEntryId(entryId)
     }

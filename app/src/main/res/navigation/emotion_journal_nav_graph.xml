@@ -31,6 +31,9 @@
             app:destination="@id/entryListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+        <action
+            android:id="@+id/action_newEntryFragment_to_emotionDescription"
+            app:destination="@id/emotionDescription" />
     </fragment>
     <fragment
         android:id="@+id/entryFragment"
@@ -42,5 +45,14 @@
             app:destination="@id/entryListFragment"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/emotionDescription"
+        android:name="nebraszka.selfaid.ui.fragments.EmotionDescription"
+        android:label="fragment_emotion_description"
+        tools:layout="@layout/fragment_emotion_description" >
+        <action
+            android:id="@+id/action_emotionDescription_to_newEntryFragment"
+            app:destination="@id/newEntryFragment" />
     </fragment>
 </navigation>

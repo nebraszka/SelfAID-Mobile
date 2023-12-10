@@ -47,27 +47,16 @@ class EntryListFragment : Fragment() {
     private fun prepareListOfEntries() {
         val adapter = EntryAdapter(this, viewModel)
 
-//      VERSION WITH DB
-//        viewModel.allEntries.observe(viewLifecycleOwner, Observer {
-//            if (!it.isNullOrEmpty()) {
-//                adapter.submitList(it)
-//                binding.rvEntriesList!!.layoutManager = LinearLayoutManager(this.context)
-//                binding.rvEntriesList!!.adapter = adapter
-//                showMenuWithEntries()
-//            } else {
-//                showMenuWithoutEntries()
-//            }
-//        })
-
-        val it = viewModel.allEntries
-        if (!it.isNullOrEmpty()) {
-            adapter.submitList(it)
-            binding.rvEntriesList!!.layoutManager = LinearLayoutManager(this.context)
-            binding.rvEntriesList!!.adapter = adapter
-            showMenuWithEntries()
-        } else {
-            showMenuWithoutEntries()
-        }
+        viewModel.allEntries.observe(this.viewLifecycleOwner, Observer {
+            if (!it.isNullOrEmpty()) {
+                adapter.submitList(it)
+                binding.rvEntriesList!!.layoutManager = LinearLayoutManager(this.context)
+                binding.rvEntriesList!!.adapter = adapter
+                showMenuWithEntries()
+            } else {
+                showMenuWithoutEntries()
+            }
+        })
     }
 
     private fun showMenuWithEntries() {
