@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginHorizontal="10dp"
-    tools:context=".ui.fragments.EmotionDescription">
+    android:layout_marginHorizontal="10dp" >
 
     <TextView
         android:id="@+id/tvEmotionName"
@@ -52,7 +51,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btnEmotionDescribtionBack"
+        android:id="@+id/btnEmotionDescriptionBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginVertical="20dp"
@@ -66,6 +65,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/svEmotionDescribtion"
         app:layout_constraintVertical_chainStyle="packed" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">SelfAID</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">SelfAID</string>
 
     <string name="database_name">selfaid.db</string>
     <string name="database_path">database/selfaid.db</string>

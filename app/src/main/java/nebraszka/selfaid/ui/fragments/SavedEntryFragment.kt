@@ -94,11 +94,12 @@ class SavedEntryFragment : Fragment() {
         binding.tvChosenEmotion.text = emotion.emotion
 
         binding.btnEmotionInfo.setOnClickListener {
-            startActivity(
-                EmotionSectionManager.emotionInfoIntent(
-                    binding.root.context, emotion
-                )
-            )
+            val bundle = Bundle()
+            bundle.putString("EXTRA_EMOTION_NAME", emotion.emotion)
+            bundle.putString("EXTRA_EMOTION_DESCRIPTION", emotion.description)
+            val dialog = EmotionDescriptionDialog()
+            dialog.arguments = bundle
+            dialog.show(parentFragmentManager, "EmotionDescriptionDialog")
         }
     }
 }

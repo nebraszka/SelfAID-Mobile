@@ -1,20 +1,16 @@
 package nebraszka.selfaid.ui.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
-import nebraszka.selfaid.data.entities.Emotion
 import nebraszka.selfaid.data.entities.Entry
 import nebraszka.selfaid.data.entities.EntryPage
 import nebraszka.selfaid.data.entities.Respond
@@ -118,7 +114,9 @@ class NewEntryFragment : Fragment() {
             val bundle = Bundle()
             bundle.putString("EXTRA_EMOTION_NAME", viewModel.chosenEmotion!!.emotion)
             bundle.putString("EXTRA_EMOTION_DESCRIPTION", viewModel.chosenEmotion!!.description)
-            findNavController().navigate(R.id.action_newEntryFragment_to_emotionDescription, bundle)
+            val dialog = EmotionDescriptionDialog()
+            dialog.arguments = bundle
+            dialog.show(parentFragmentManager, "EmotionDescriptionDialog")
         }
 
     }

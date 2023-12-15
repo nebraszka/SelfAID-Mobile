@@ -11,8 +11,6 @@ import java.util.Locale
 class DatePickerHandler {
 
     companion object {
-        private var datePickerDialog: Int = R.layout.dialog_date_picker
-
         private var date: Calendar = Calendar.getInstance()
         private var chosenYear = date[Calendar.YEAR]
         private var chosenMonth = date[Calendar.MONTH]

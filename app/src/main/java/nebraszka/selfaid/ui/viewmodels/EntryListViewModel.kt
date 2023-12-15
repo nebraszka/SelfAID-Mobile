@@ -21,28 +21,10 @@ import nebraszka.selfaid.data.entities.Entry
 class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel() {
 
     val allEntries = repository.allEntries.asLiveData()
-fun deleteByEntryId(entryId: Int) = viewModelScope.launch{
+    fun deleteByEntryId(entryId: Int) = viewModelScope.launch {
         repository.deleteByEntryId(entryId)
     }
-
-//    private val _uiState = MutableStateFlow(EntryListState())
-//    val uiState: StateFlow<EntryListState> = _uiState.asStateFlow()
-//
-//    private var fetchJob: Job? = null
-//
-//    fun fetchEntries() {
-//        fetchJob?.cancel()
-//        fetchJob = viewModelScope.launch {
-//            val entries = repository.getAllEntries()
-//            _uiState.value = uiState.value.copy(entries = entries)
-//        }
-//    }
 }
-//
-//data class EntryListState(
-//    val entries: List<Entry> = emptyList(),
-//    val userMessages: List<String> = emptyList()
-//)
 
 class EntryListViewModelFactory(private val repository: SelfAIDRepository) :
     ViewModelProvider.Factory {
