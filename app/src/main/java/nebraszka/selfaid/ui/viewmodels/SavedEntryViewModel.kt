@@ -5,12 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
+import dagger.hilt.android.HiltAndroidApp
+import dagger.hilt.android.lifecycle.HiltViewModel
 import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.data.repository.SelfAIDRepository
+import javax.inject.Inject
 
-class SavedEntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
+@HiltViewModel
+class SavedEntryViewModel @Inject constructor(private val repository: SelfAIDRepository) : ViewModel() {
     val allEJExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
     var entryId = MutableLiveData<Long>()
 
@@ -20,17 +24,5 @@ class SavedEntryViewModel(private val repository: SelfAIDRepository) : ViewModel
 
     fun getEntryEmotion(entryId: Int): LiveData<EmotionEntity> {
         return repository.getEntryEmotion(entryId).asLiveData()
-    }
-}
-
-class SavedEntryViewModelFactory(private val repository: SelfAIDRepository) :
-    ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(SavedEntryViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return SavedEntryViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }

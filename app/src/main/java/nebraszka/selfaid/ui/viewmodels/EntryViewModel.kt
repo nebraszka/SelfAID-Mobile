@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import nebraszka.selfaid.data.domain.model.Emotion
 import nebraszka.selfaid.data.local.entities.EntryEntity
@@ -13,10 +14,12 @@ import nebraszka.selfaid.data.local.entities.EntryPageEntity
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.data.local.entities.RespondEntity
 import nebraszka.selfaid.data.repository.SelfAIDRepository
+import javax.inject.Inject
 
-class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
+@HiltViewModel
+class EntryViewModel @Inject constructor(private val repository: SelfAIDRepository) : ViewModel() {
     var chosenEmotion: Emotion? = null
-    val allEmotions: LiveData<List<Emotion>> = repository.allEmotions.asLiveData()
+    val allEmotions: LiveData<List<Emotion>> = repository.getAllEmotions().asLiveData()
     val allExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
 
     var entryId = MutableLiveData<Long>()
@@ -44,15 +47,15 @@ class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
         }
     }
 
-    class EntryViewModelFactory(private val repository: SelfAIDRepository) :
-        ViewModelProvider.Factory {
-
-        override fun <T : ViewModel> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(EntryViewModel::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return EntryViewModel(repository) as T
-            }
-            throw IllegalArgumentException("Unknown ViewModel class")
-        }
-    }
+//    class EntryViewModelFactory() :
+//        ViewModelProvider.Factory {
+//
+//        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//            if (modelClass.isAssignableFrom(EntryViewModel::class.java)) {
+//                @Suppress("UNCHECKED_CAST")
+//                return EntryViewModel as T
+//            }
+//            throw IllegalArgumentException("Unknown ViewModel class")
+//        }
+//    }
 }

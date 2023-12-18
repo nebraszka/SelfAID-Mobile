@@ -7,8 +7,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import nebraszka.selfaid.R
 
+@AndroidEntryPoint
 class EmotionJournalActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration

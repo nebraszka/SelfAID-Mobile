@@ -11,17 +11,6 @@ import nebraszka.selfaid.data.repository.SelfAIDRepository
 @HiltAndroidApp
 class SelfAIDApplication : Application() {
 
-    val database by lazy { SelfAIDDatabase.getDatabase(this) }
-
-    val repository by lazy {
-        SelfAIDRepository(
-            database.emotionDao(),
-            database.exerciseDao(),
-            database.entryDao(),
-            database.entryPageDao(),
-            database.respondDao()
-        )
-    }
 }
 
 //    val retrofitService: SelfAIDApiService by lazy {

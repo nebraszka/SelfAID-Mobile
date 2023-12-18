@@ -10,26 +10,21 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
-import nebraszka.selfaid.data.network.EmotionApiService
 import nebraszka.selfaid.databinding.FragmentEntryListBinding
 import nebraszka.selfaid.ui.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.EntryAdapter
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModel
-import nebraszka.selfaid.ui.viewmodels.EntryListViewModelFactory
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
+@AndroidEntryPoint
 class EntryListFragment : Fragment() {
 
     private var _binding: FragmentEntryListBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: EntryListViewModel by viewModels {
-        EntryListViewModelFactory((activity?.application as SelfAIDApplication).repository)
-    }
+    private val viewModel: EntryListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

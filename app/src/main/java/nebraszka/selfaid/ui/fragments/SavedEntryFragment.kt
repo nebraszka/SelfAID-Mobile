@@ -8,23 +8,21 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import nebraszka.selfaid.R
-import nebraszka.selfaid.SelfAIDApplication
 import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.databinding.FragmentSavedEntryBinding
 import nebraszka.selfaid.ui.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.AnswersAdapter
 import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModel
-import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModelFactory
 
+@AndroidEntryPoint
 class SavedEntryFragment : Fragment() {
 
     private var _binding: FragmentSavedEntryBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: SavedEntryViewModel by viewModels {
-        SavedEntryViewModelFactory((activity?.application as SelfAIDApplication).repository)
-    }
+    private val viewModel: SavedEntryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

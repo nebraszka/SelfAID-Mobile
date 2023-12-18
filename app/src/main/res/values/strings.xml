@@ -2,6 +2,8 @@
     <string name="app_name">SelfAID</string>
     <string name="title_activity_main">SelfAID</string>
 
+    <string name="api_url">http://10.0.2.2:5257/api/</string>
+
     <string name="database_name">selfaid.db</string>
     <string name="database_path">database/selfaid.db</string>
 

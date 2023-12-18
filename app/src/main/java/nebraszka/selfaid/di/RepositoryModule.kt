@@ -9,7 +9,6 @@ import nebraszka.selfaid.data.local.dao.EntryDao
 import nebraszka.selfaid.data.local.dao.EntryPageDao
 import nebraszka.selfaid.data.local.dao.ExerciseDao
 import nebraszka.selfaid.data.local.dao.RespondDao
-import nebraszka.selfaid.data.network.EmotionApiService
 import nebraszka.selfaid.data.network.models.EmotionDtoMapper
 import nebraszka.selfaid.data.repository.SelfAIDRepository
 import javax.inject.Singleton
@@ -32,7 +31,8 @@ object RepositoryModule {
             exerciseDao = exerciseDao,
             entryDao = entryDao,
             entryPageDao = entryPageDao,
-            respondDao = respondDao
+            respondDao = respondDao,
+            network = null
         )
     }
 }

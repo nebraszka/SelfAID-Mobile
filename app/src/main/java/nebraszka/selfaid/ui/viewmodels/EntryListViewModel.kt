@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import nebraszka.selfaid.data.repository.SelfAIDRepository
+import javax.inject.Inject
 
 
 /**
@@ -13,7 +15,8 @@ import nebraszka.selfaid.data.repository.SelfAIDRepository
  * - entries - date, title (everything without id)
  * - deleteEntryById
  */
-class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel() {
+@HiltViewModel
+class EntryListViewModel @Inject constructor(private val repository: SelfAIDRepository) : ViewModel() {
 
     val allEntries = repository.allEntries.asLiveData()
     fun deleteByEntryId(entryId: Int) = viewModelScope.launch {
@@ -23,16 +26,4 @@ class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel(
 
 fun deleteEmotionsAPI(){
 
-}
-
-class EntryListViewModelFactory(private val repository: SelfAIDRepository) :
-    ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(EntryListViewModel::class.java)) {
-            @Suppress("UNCHECKED_CAST")
-            return EntryListViewModel(repository) as T
-        }
-        throw IllegalArgumentException("Unknown ViewModel class")
-    }
 }

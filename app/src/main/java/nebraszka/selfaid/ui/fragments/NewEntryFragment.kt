@@ -9,6 +9,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
 import nebraszka.selfaid.data.local.entities.EntryEntity
@@ -24,14 +25,13 @@ import nebraszka.selfaid.ui.adapters.RespondsHandler
 import nebraszka.selfaid.ui.adapters.exercises.ExerciseAdapter
 import nebraszka.selfaid.ui.viewmodels.EntryViewModel
 
+@AndroidEntryPoint
 class NewEntryFragment : Fragment() {
 
     private var _binding: FragmentNewEntryBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel: EntryViewModel by viewModels {
-        EntryViewModel.EntryViewModelFactory((activity?.application as SelfAIDApplication).repository)
-    }
+    private val viewModel: EntryViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

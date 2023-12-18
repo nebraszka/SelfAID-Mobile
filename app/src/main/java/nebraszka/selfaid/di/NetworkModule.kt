@@ -5,8 +5,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import nebraszka.selfaid.R
 import nebraszka.selfaid.data.local.entities.EmotionEntityMapper
-import nebraszka.selfaid.data.network.EmotionApiService
+import nebraszka.selfaid.data.network.SelfAIDNetworkDataSource
 import nebraszka.selfaid.data.network.models.EmotionDtoMapper
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -30,12 +31,12 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideEmotionApiService(): EmotionApiService {
+    fun provideSelfAIDNetworkDataSource(): SelfAIDNetworkDataSource {
         return Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:5257/api/")
+            .baseUrl(R.string.api_url.toString())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
             .build()
-            .create(EmotionApiService::class.java)
+            .create(SelfAIDNetworkDataSource::class.java)
     }
 
     /**

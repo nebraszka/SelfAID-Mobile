@@ -6,20 +6,28 @@ import kotlinx.coroutines.flow.map
 import nebraszka.selfaid.data.domain.model.Emotion
 import nebraszka.selfaid.data.local.dao.*
 import nebraszka.selfaid.data.local.entities.*
+import nebraszka.selfaid.data.network.SelfAIDNetworkDataSource
 
 class SelfAIDRepository(
     private val emotionDao: EmotionDao,
     private val exerciseDao: ExerciseDao,
     private val entryDao: EntryDao,
     private val entryPageDao: EntryPageDao,
-    private val respondDao: RespondDao
+    private val respondDao: RespondDao,
+    private val network: SelfAIDNetworkDataSource?
+
 ) {
+    // TODO: change to functions
     val allEntries: Flow<List<EntryEntity>> = entryDao.getAllEntries()
-    val allEmotions: Flow<List<Emotion>> = emotionDao.getAlphabetizedEmotions().map { emotionMapper.mapToDomainModelList(it) }
     val allExercises: Flow<List<ExerciseEntity>> = exerciseDao.getAllExercises()
 
     private val emotionMapper = EmotionEntityMapper()
     //TODO: RedundantSuspendModifier
+
+    @WorkerThread
+    fun getAllEmotions(): Flow<List<Emotion>> {
+        return emotionDao.getAlphabetizedEmotions().map { emotionMapper.mapToDomainModelList(it) }
+    }
 
     @WorkerThread
     fun getEmotion(name: String): Flow<Emotion> {
