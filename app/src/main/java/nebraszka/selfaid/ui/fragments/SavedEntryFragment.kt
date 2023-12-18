@@ -10,11 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
-import nebraszka.selfaid.data.entities.Emotion
+import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.databinding.FragmentSavedEntryBinding
 import nebraszka.selfaid.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.AnswersAdapter
-import nebraszka.selfaid.ui.adapters.EmotionSectionManager
 import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModel
 import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModelFactory
 
@@ -88,7 +87,7 @@ class SavedEntryFragment : Fragment() {
         }
     }
 
-    private fun bindEmotionInfo(emotion: Emotion, entryId: Int) {
+    private fun bindEmotionInfo(emotion: EmotionEntity, entryId: Int) {
         binding.tvChooseEmotion.text =
             this.resources.getString(R.string.EJ_SavedEntry_ChosenEmotion)
         binding.tvChosenEmotion.text = emotion.emotion

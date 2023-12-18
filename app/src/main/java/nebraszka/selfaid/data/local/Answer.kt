@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.entities
+package nebraszka.selfaid.data.local
 
 class Answer(
     val text_answer: String?,

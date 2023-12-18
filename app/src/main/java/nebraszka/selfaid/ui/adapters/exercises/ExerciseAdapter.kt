@@ -4,9 +4,9 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 
-class ExerciseAdapter(private val owner: LifecycleOwner) : ListAdapter<Exercise, ExerciseViewHolder>(
+class ExerciseAdapter(private val owner: LifecycleOwner) : ListAdapter<ExerciseEntity, ExerciseViewHolder>(
     ExerciseComparator()
 ) {
 
@@ -25,12 +25,12 @@ class ExerciseAdapter(private val owner: LifecycleOwner) : ListAdapter<Exercise,
     }
 
 
-    class ExerciseComparator : DiffUtil.ItemCallback<Exercise>() {
-        override fun areItemsTheSame(oldItem: Exercise, newItem: Exercise): Boolean {
+    class ExerciseComparator : DiffUtil.ItemCallback<ExerciseEntity>() {
+        override fun areItemsTheSame(oldItem: ExerciseEntity, newItem: ExerciseEntity): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: Exercise, newItem: Exercise): Boolean {
+        override fun areContentsTheSame(oldItem: ExerciseEntity, newItem: ExerciseEntity): Boolean {
             return oldItem.topic == newItem.topic
         }
     }

@@ -6,8 +6,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
-import nebraszka.selfaid.data.SelfAIDDatabase
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.SelfAIDDatabase
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowAnswerBinding
 import nebraszka.selfaid.enums.ExerciseTypeEn
 
@@ -24,10 +24,10 @@ class AnswersViewHolder(private val binding: RowAnswerBinding, private val entry
             return AnswersViewHolder(binding, entryId)
         }
     }
-    fun bind(exercise: Exercise, owner: LifecycleOwner) {
+    fun bind(exercise: ExerciseEntity, owner: LifecycleOwner) {
         binding.tvExerciseTopic.text = exercise.topic
 
-        val responds = database.ejRespondDao()
+        val responds = database.respondDao()
             .getRespondsForExercise(entryId, 1, exercise.id).asLiveData()
 
         val resources =  itemView.context.resources

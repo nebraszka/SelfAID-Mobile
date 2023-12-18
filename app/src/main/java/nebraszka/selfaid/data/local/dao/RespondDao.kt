@@ -1,21 +1,21 @@
-package nebraszka.selfaid.data.dao
+package nebraszka.selfaid.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import nebraszka.selfaid.data.entities.Answer
-import nebraszka.selfaid.data.entities.Respond
+import nebraszka.selfaid.data.local.Answer
+import nebraszka.selfaid.data.local.entities.RespondEntity
 
 @Dao
-interface EJRespondDao {
+interface RespondDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     @JvmSuppressWildcards
-    suspend fun insertAllResponds(responds: List<Respond>)
+    suspend fun insertAllResponds(responds: List<RespondEntity>)
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertRespond(respond: Respond)
+    suspend fun insertRespond(respond: RespondEntity)
 
     @Query(
         "SELECT responds.text_answer, suggest.answer " +

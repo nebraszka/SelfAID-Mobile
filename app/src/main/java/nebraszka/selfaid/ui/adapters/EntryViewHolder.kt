@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
-import nebraszka.selfaid.data.entities.Entry
+import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.databinding.RowEntryBinding
 import nebraszka.selfaid.tools.DeleteEntryPickerHandler
 import nebraszka.selfaid.tools.datetools.DateEditor
@@ -25,7 +25,7 @@ class EntryViewHolder(private val binding: RowEntryBinding) :
         }
     }
 
-    fun bind(entry: Entry, position: Int) {
+    fun bind(entry: EntryEntity, position: Int) {
         itemView.id = entry.id
         val reverseDate = DateEditor.reverseDate(entry.date)
 

@@ -2,12 +2,12 @@ package nebraszka.selfaid.ui.adapters.exercises
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowScaleQuestionBinding
 import nebraszka.selfaid.tools.SeekBarDescriptionChanger
 
 class ScaleQuestionViewHolder(
-    view: View, owner: LifecycleOwner, exercise: Exercise
+    view: View, owner: LifecycleOwner, exercise: ExerciseEntity
 ) : ExerciseViewHolderBinder(view, owner, exercise) {
 
     private var _binding: RowScaleQuestionBinding? = null

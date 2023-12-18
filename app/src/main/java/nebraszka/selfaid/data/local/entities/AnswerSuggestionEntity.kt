@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.entities
+package nebraszka.selfaid.data.local.entities
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
@@ -10,13 +10,13 @@ import androidx.room.PrimaryKey
     tableName = "TB_Answer_Suggest",
     foreignKeys = [
         ForeignKey(
-            entity = Exercise::class,
+            entity = ExerciseEntity::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("question_id"),
             onDelete = ForeignKey.CASCADE
         )]
 )
-data class AnswerSuggestion(
+data class AnswerSuggestionEntity(
     @ColumnInfo(name = "answer") val answer: String?,
     @NonNull
     @ColumnInfo(name = "question_id", index = true) val questionId: Int

@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.entities
+package nebraszka.selfaid.data.local.entities
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
@@ -10,26 +10,26 @@ import androidx.room.PrimaryKey
     tableName = "TB_EJ_Responds",
     foreignKeys = [
         ForeignKey(
-            entity = AnswerSuggestion::class,
+            entity = AnswerSuggestionEntity::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("chosen_answer"),
             onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
-            entity = EntryPage::class,
+            entity = EntryPageEntity::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("page_id"),
             onDelete = ForeignKey.CASCADE
         ),
         ForeignKey(
-            entity = Exercise::class,
+            entity = ExerciseEntity::class,
             parentColumns = arrayOf("id"),
             childColumns = arrayOf("exercise_id"),
             onDelete = ForeignKey.CASCADE
         )
     ]
 )
-data class Respond(
+data class RespondEntity(
     @NonNull
     @ColumnInfo(name = "exercise_id", index = true) val exerciseId: Int,
     @NonNull

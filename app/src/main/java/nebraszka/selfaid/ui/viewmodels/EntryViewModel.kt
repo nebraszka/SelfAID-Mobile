@@ -7,17 +7,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import nebraszka.selfaid.data.SelfAIDRepository
-import nebraszka.selfaid.data.entities.Emotion
-import nebraszka.selfaid.data.entities.Entry
-import nebraszka.selfaid.data.entities.EntryPage
-import nebraszka.selfaid.data.entities.Exercise
-import nebraszka.selfaid.data.entities.Respond
+import nebraszka.selfaid.data.domain.model.Emotion
+import nebraszka.selfaid.data.local.SelfAIDRepository
+import nebraszka.selfaid.data.local.entities.EntryEntity
+import nebraszka.selfaid.data.local.entities.EntryPageEntity
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
+import nebraszka.selfaid.data.local.entities.RespondEntity
 
 class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
     var chosenEmotion: Emotion? = null
     val allEmotions: LiveData<List<Emotion>> = repository.allEmotions.asLiveData()
-    val allExercises: LiveData<List<Exercise>> = repository.allExercises.asLiveData()
+    val allExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
 
     var entryId = MutableLiveData<Long>()
     var pageId = MutableLiveData<Long>()
@@ -26,19 +26,19 @@ class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
         return repository.getEmotion(name).asLiveData()
     }
 
-    fun addEntry(entry: Entry) {
+    fun addEntry(entry: EntryEntity) {
         viewModelScope.launch {
             entryId.postValue(repository.insertEntry(entry))
         }
     }
 
-    fun addPage(page: EntryPage) {
+    fun addPage(page: EntryPageEntity) {
         viewModelScope.launch {
             pageId.postValue(repository.insertEntryPage(page))
         }
     }
 
-    fun addResponds(responds: List<Respond>) {
+    fun addResponds(responds: List<RespondEntity>) {
         viewModelScope.launch {
             repository.insertResponds(responds)
         }

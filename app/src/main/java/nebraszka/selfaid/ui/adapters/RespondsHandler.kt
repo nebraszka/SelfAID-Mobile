@@ -8,13 +8,13 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
-import nebraszka.selfaid.data.entities.Respond
+import nebraszka.selfaid.data.local.entities.RespondEntity
 import nebraszka.selfaid.enums.ExerciseTypeEn
 class RespondsHandler {
     companion object {
-        fun getResponds(recyclerView: RecyclerView, pageId: Int): List<Respond> {
+        fun getResponds(recyclerView: RecyclerView, pageId: Int): List<RespondEntity> {
 
-            val responds: MutableList<Respond> = mutableListOf()
+            val responds: MutableList<RespondEntity> = mutableListOf()
 
             for (i in 0 until recyclerView.childCount) {
                 val child: View = recyclerView.getChildAt(i)
@@ -27,7 +27,7 @@ class RespondsHandler {
                         if (answer.isEmpty())
                             continue
                         else
-                            responds += Respond(
+                            responds += RespondEntity(
                                 child.id, pageId, null, answer
                             )
                     }
@@ -38,7 +38,7 @@ class RespondsHandler {
                             continue
                         }
                         else
-                            responds += Respond(
+                            responds += RespondEntity(
                                 child.id, pageId, chosenAnswer, null
                             )
                     }
@@ -49,7 +49,7 @@ class RespondsHandler {
                             continue
                         else {
                             for (checkedBox in checkedBoxes) {
-                                responds += Respond(
+                                responds += RespondEntity(
                                     child.id, pageId, checkedBox, null
                                 )
                             }
@@ -58,7 +58,7 @@ class RespondsHandler {
 
                     ExerciseTypeEn.VIEW_SCALE_QUESTION -> {
                         val answer = child.findViewById<ProgressBar>(R.id.scaleQuestionRow).progress
-                        responds += Respond(
+                        responds += RespondEntity(
                             child.id, pageId, null, answer.toString()
                         )
                     }
@@ -66,7 +66,7 @@ class RespondsHandler {
                     ExerciseTypeEn.VIEW_TODO_TASK -> {
                         val isDone = child.findViewById<CheckBox>(R.id.checkBoxTaskRow).isChecked
                         if (isDone) {
-                            responds += Respond(
+                            responds += RespondEntity(
                                 child.id, pageId, null, isDone.toString()
                             )
                         }

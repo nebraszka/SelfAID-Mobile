@@ -6,13 +6,13 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.asLiveData
-import nebraszka.selfaid.data.SelfAIDDatabase
-import nebraszka.selfaid.data.entities.AnswerSuggestion
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.SelfAIDDatabase
+import nebraszka.selfaid.data.local.entities.AnswerSuggestionEntity
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowChooseOptionBinding
 
 class ChooseAnswerViewHolder(
-    view: View, owner: LifecycleOwner, exercise: Exercise, private val multipleChoice: Boolean
+    view: View, owner: LifecycleOwner, exercise: ExerciseEntity, private val multipleChoice: Boolean
 ) : ExerciseViewHolderBinder(view, owner, exercise) {
 
     private var _binding: RowChooseOptionBinding? = null
@@ -30,7 +30,7 @@ class ChooseAnswerViewHolder(
         }
     }
 
-    private fun attachAnswers(answerSuggestions: List<AnswerSuggestion>) {
+    private fun attachAnswers(answerSuggestions: List<AnswerSuggestionEntity>) {
         if (multipleChoice) {
             for (answer in answerSuggestions) {
                 val checkBox = CheckBox(view.context)

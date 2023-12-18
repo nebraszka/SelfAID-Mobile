@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.entities
+package nebraszka.selfaid.data.local.entities
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
@@ -9,13 +9,13 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "TB_EJ_Exercises",
     foreignKeys = [ForeignKey(
-        entity = ExerciseType::class,
+        entity = ExerciseTypeEntity::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("exercise_type"),
         onDelete = ForeignKey.CASCADE
     )]
 )
-data class Exercise(
+data class ExerciseEntity(
     @NonNull
     @ColumnInfo(name = "topic") val topic: String,
     @NonNull

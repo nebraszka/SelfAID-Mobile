@@ -1,11 +1,10 @@
 package nebraszka.selfaid.ui.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.transition.R
-import nebraszka.selfaid.data.entities.Emotion
+import nebraszka.selfaid.data.domain.model.Emotion
 
 class EmotionSectionManager {
 

@@ -5,20 +5,20 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import nebraszka.selfaid.data.SelfAIDRepository
-import nebraszka.selfaid.data.entities.Emotion
-import nebraszka.selfaid.data.entities.Entry
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.SelfAIDRepository
+import nebraszka.selfaid.data.local.entities.EmotionEntity
+import nebraszka.selfaid.data.local.entities.EntryEntity
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 
 class SavedEntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
-    val allEJExercises: LiveData<List<Exercise>> = repository.allExercises.asLiveData()
+    val allEJExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
     var entryId = MutableLiveData<Long>()
 
-    fun getEntryInfo(entryId: Int): LiveData<Entry> {
+    fun getEntryInfo(entryId: Int): LiveData<EntryEntity> {
         return repository.getEntryInfo(entryId).asLiveData()
     }
 
-    fun getEntryEmotion(entryId: Int): LiveData<Emotion> {
+    fun getEntryEmotion(entryId: Int): LiveData<EmotionEntity> {
         return repository.getEntryEmotion(entryId).asLiveData()
     }
 }

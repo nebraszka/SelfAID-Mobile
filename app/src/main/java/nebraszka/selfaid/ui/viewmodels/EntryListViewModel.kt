@@ -4,13 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import nebraszka.selfaid.data.SelfAIDRepository
-import nebraszka.selfaid.data.entities.Entry
+import nebraszka.selfaid.data.local.SelfAIDRepository
 
 
 /**
@@ -24,6 +19,10 @@ class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel(
     fun deleteByEntryId(entryId: Int) = viewModelScope.launch {
         repository.deleteByEntryId(entryId)
     }
+}
+
+fun deleteEmotionsAPI(){
+
 }
 
 class EntryListViewModelFactory(private val repository: SelfAIDRepository) :

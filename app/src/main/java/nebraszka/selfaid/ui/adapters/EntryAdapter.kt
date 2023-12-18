@@ -4,10 +4,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
-import nebraszka.selfaid.data.entities.*
+import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModel
 
-class EntryAdapter(private val owner: LifecycleOwner, private val viewModel: EntryListViewModel) : ListAdapter<Entry, EntryViewHolder>(
+class EntryAdapter(private val owner: LifecycleOwner, private val viewModel: EntryListViewModel) : ListAdapter<EntryEntity, EntryViewHolder>(
     EntryComparator()
 ) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EntryViewHolder {
@@ -21,12 +21,12 @@ class EntryAdapter(private val owner: LifecycleOwner, private val viewModel: Ent
         holder.setUpDeleteClickListener(viewModel)
     }
 
-    class EntryComparator : DiffUtil.ItemCallback<Entry>() {
-        override fun areItemsTheSame(oldItem: Entry, newItem: Entry): Boolean {
+    class EntryComparator : DiffUtil.ItemCallback<EntryEntity>() {
+        override fun areItemsTheSame(oldItem: EntryEntity, newItem: EntryEntity): Boolean {
             return oldItem === newItem
         }
 
-        override fun areContentsTheSame(oldItem: Entry, newItem: Entry): Boolean {
+        override fun areContentsTheSame(oldItem: EntryEntity, newItem: EntryEntity): Boolean {
             return oldItem.date == newItem.date
         }
     }

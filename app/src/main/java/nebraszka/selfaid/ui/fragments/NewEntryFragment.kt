@@ -11,9 +11,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
-import nebraszka.selfaid.data.entities.Entry
-import nebraszka.selfaid.data.entities.EntryPage
-import nebraszka.selfaid.data.entities.Respond
+import nebraszka.selfaid.data.local.entities.EntryEntity
+import nebraszka.selfaid.data.local.entities.EntryPageEntity
+import nebraszka.selfaid.data.local.entities.RespondEntity
 import nebraszka.selfaid.databinding.FragmentNewEntryBinding
 import nebraszka.selfaid.tools.ViewVisibilityManager
 import nebraszka.selfaid.tools.datetools.DateEditor
@@ -23,7 +23,6 @@ import nebraszka.selfaid.ui.adapters.EmotionSelectedListener
 import nebraszka.selfaid.ui.adapters.RespondsHandler
 import nebraszka.selfaid.ui.adapters.exercises.ExerciseAdapter
 import nebraszka.selfaid.ui.viewmodels.EntryViewModel
-import java.lang.Thread.sleep
 
 class NewEntryFragment : Fragment() {
 
@@ -47,7 +46,7 @@ class NewEntryFragment : Fragment() {
 
         viewModel.entryId.observe(viewLifecycleOwner){ entryId ->
             if (entryId != null) {
-                viewModel.addPage(EntryPage(1, viewModel.chosenEmotion?.id ?: 1, entryId.toInt()))
+                viewModel.addPage(EntryPageEntity(1, viewModel.chosenEmotion?.id ?: 1, entryId.toInt()))
             }
         }
 
@@ -57,7 +56,7 @@ class NewEntryFragment : Fragment() {
                     RespondsHandler.getResponds(
                         binding.rvTasks,
                         pageId.toInt()
-                    ) as MutableList<Respond>
+                    ) as MutableList<RespondEntity>
                 )
             findNavController().navigate(R.id.action_newEntryFragment_to_entryListFragment)
             }
@@ -126,7 +125,7 @@ class NewEntryFragment : Fragment() {
         val title = binding.etEJTitle.text.toString()
 
         viewModel.addEntry(
-            Entry(
+            EntryEntity(
                 DateEditor.reverseDate(date),
                 title
             )

@@ -3,11 +3,11 @@ package nebraszka.selfaid.ui.adapters
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.ListAdapter
-import nebraszka.selfaid.data.entities.Exercise
+import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.ui.adapters.exercises.ExerciseAdapter
 
 class AnswersAdapter(val owner: LifecycleOwner, private val entryId: Int) :
-    ListAdapter<Exercise, AnswersViewHolder>(
+    ListAdapter<ExerciseEntity, AnswersViewHolder>(
         ExerciseAdapter.ExerciseComparator()
     ) {
 

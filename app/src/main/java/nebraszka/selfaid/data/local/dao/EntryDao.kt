@@ -1,24 +1,24 @@
-package nebraszka.selfaid.data.dao
+package nebraszka.selfaid.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import nebraszka.selfaid.data.entities.Entry
-import nebraszka.selfaid.data.entities.Emotion
+import nebraszka.selfaid.data.local.entities.EntryEntity
+import nebraszka.selfaid.data.local.entities.EmotionEntity
 
 @Dao
-interface EJEntryDao {
+interface EntryDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(entry: Entry): Long
+    suspend fun insert(entry: EntryEntity): Long
 
     @Query("SELECT * FROM TB_EJ_Entries WHERE id=:entryId")
-    fun getEntry(entryId: Int): Flow<Entry>
+    fun getEntry(entryId: Int): Flow<EntryEntity>
 
     @Query("SELECT * FROM TB_EJ_Entries ORDER BY date DESC")
-    fun getAllEntries(): Flow<List<Entry>>
+    fun getAllEntries(): Flow<List<EntryEntity>>
 
     @Query("SELECT COUNT(*) FROM TB_EJ_Entries")
     fun countEntries(): Flow<Int>
@@ -35,7 +35,7 @@ interface EJEntryDao {
                 "   ON pagesWithEmotionInfo.entry_id=entries.id " +
                 "WHERE entries.id=:entryId"
     )
-    fun getEntryEmotion(entryId: Int): Flow<Emotion>
+    fun getEntryEmotion(entryId: Int): Flow<EmotionEntity>
 
     @Query("DELETE FROM TB_EJ_Entries WHERE id = :entryId")
     suspend fun deleteByEntryId(entryId: Int)

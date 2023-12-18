@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.entities
+package nebraszka.selfaid.data.local.entities
 
 import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
@@ -10,18 +10,18 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "TB_Entry_Pages",
     foreignKeys = [ForeignKey(
-        entity = Emotion::class,
+        entity = EmotionEntity::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("emotion_id"),
         onDelete = CASCADE
     ), ForeignKey(
-        entity = Entry::class,
+        entity = EntryEntity::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("entry_id"),
         onDelete = CASCADE
     )]
 )
-data class EntryPage(
+data class EntryPageEntity(
     @NonNull
     @ColumnInfo(name = "page_number", index = true) val pageNo: Int,
     @NonNull

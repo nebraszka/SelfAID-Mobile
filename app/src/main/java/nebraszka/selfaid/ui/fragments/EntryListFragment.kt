@@ -1,6 +1,7 @@
 package nebraszka.selfaid.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +12,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
+import nebraszka.selfaid.data.network.EmotionApiService
 import nebraszka.selfaid.databinding.FragmentEntryListBinding
 import nebraszka.selfaid.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.EntryAdapter
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModel
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModelFactory
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class EntryListFragment : Fragment() {
 
@@ -66,6 +71,25 @@ class EntryListFragment : Fragment() {
 
         binding.btnNewEntry.setOnClickListener {
             findNavController().navigate(R.id.action_entryListFragment_to_newEntryFragment)
+
+//            val call = (activity?.application as SelfAIDApplication).retrofitService.deleteEmotion()
+//            call?.enqueue(object : Callback<String?> {
+//                override fun onResponse(call: Call<String?>, response: Response<String?>) {
+//                    if (response.isSuccessful) {
+//                        // Handle successful response
+//                        Log.d("DELETE", "Success: ${response.body()}")
+//                    } else {
+//                        // Handle failure response
+//                        Log.d("DELETE", "Failed: ${response.code()}")
+//                    }
+//                }
+//
+//                override fun onFailure(call: Call<String?>, t: Throwable) {
+//                    // Handle network error or exception
+//                    Log.e("DELETE", "Error: ${t.message}")
+//                }
+//            })
+
         }
     }
 
