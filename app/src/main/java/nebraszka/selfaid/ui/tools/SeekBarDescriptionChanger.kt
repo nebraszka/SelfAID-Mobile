@@ -1,4 +1,4 @@
-package nebraszka.selfaid.tools
+package nebraszka.selfaid.ui.tools
 
 import android.widget.SeekBar
 import android.widget.TextView

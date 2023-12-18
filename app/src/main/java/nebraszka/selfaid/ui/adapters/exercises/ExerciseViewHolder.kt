@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
-import nebraszka.selfaid.enums.ExerciseTypeEn
+import nebraszka.selfaid.ui.enums.ExerciseTypeEn
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
-import nebraszka.selfaid.exceptions.UnknownExerciseTypeException
+import nebraszka.selfaid.ui.exceptions.UnknownExerciseTypeException
 import pl.nebraszka.selfaid.adapters.exercises.QuestionViewHolder
 
 class ExerciseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

@@ -9,7 +9,7 @@ import nebraszka.selfaid.R
 import nebraszka.selfaid.data.local.SelfAIDDatabase
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowAnswerBinding
-import nebraszka.selfaid.enums.ExerciseTypeEn
+import nebraszka.selfaid.ui.enums.ExerciseTypeEn
 
 class AnswersViewHolder(private val binding: RowAnswerBinding, private val entryId: Int) :
     RecyclerView.ViewHolder(binding.root) {

@@ -1,4 +1,4 @@
-package nebraszka.selfaid.exceptions
+package nebraszka.selfaid.ui.exceptions
 
 data class UnknownExerciseTypeException(
     override val message: String =

@@ -1,4 +1,4 @@
-package nebraszka.selfaid.tools.datetools
+package nebraszka.selfaid.ui.tools.datetools
 
 import android.app.Dialog
 import android.content.Context

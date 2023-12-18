@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.LifecycleOwner
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
-import nebraszka.selfaid.enums.ExerciseTypeEn
+import nebraszka.selfaid.ui.enums.ExerciseTypeEn
 
 abstract class ExerciseViewHolderBinder(
     val view: View,

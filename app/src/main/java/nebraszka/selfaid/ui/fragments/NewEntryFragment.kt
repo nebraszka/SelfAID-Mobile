@@ -15,9 +15,9 @@ import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.data.local.entities.EntryPageEntity
 import nebraszka.selfaid.data.local.entities.RespondEntity
 import nebraszka.selfaid.databinding.FragmentNewEntryBinding
-import nebraszka.selfaid.tools.ViewVisibilityManager
-import nebraszka.selfaid.tools.datetools.DateEditor
-import nebraszka.selfaid.tools.datetools.DatePickerHandler
+import nebraszka.selfaid.ui.tools.ViewVisibilityManager
+import nebraszka.selfaid.ui.tools.datetools.DateEditor
+import nebraszka.selfaid.ui.tools.datetools.DatePickerHandler
 import nebraszka.selfaid.ui.adapters.EmotionSectionManager
 import nebraszka.selfaid.ui.adapters.EmotionSelectedListener
 import nebraszka.selfaid.ui.adapters.RespondsHandler

@@ -12,7 +12,7 @@ import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
 import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.databinding.FragmentSavedEntryBinding
-import nebraszka.selfaid.tools.ViewVisibilityManager
+import nebraszka.selfaid.ui.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.AnswersAdapter
 import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModel
 import nebraszka.selfaid.ui.viewmodels.SavedEntryViewModelFactory

@@ -4,7 +4,7 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowScaleQuestionBinding
-import nebraszka.selfaid.tools.SeekBarDescriptionChanger
+import nebraszka.selfaid.ui.tools.SeekBarDescriptionChanger
 
 class ScaleQuestionViewHolder(
     view: View, owner: LifecycleOwner, exercise: ExerciseEntity

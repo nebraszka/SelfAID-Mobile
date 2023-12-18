@@ -14,7 +14,7 @@ import nebraszka.selfaid.R
 import nebraszka.selfaid.SelfAIDApplication
 import nebraszka.selfaid.data.network.EmotionApiService
 import nebraszka.selfaid.databinding.FragmentEntryListBinding
-import nebraszka.selfaid.tools.ViewVisibilityManager
+import nebraszka.selfaid.ui.tools.ViewVisibilityManager
 import nebraszka.selfaid.ui.adapters.EntryAdapter
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModel
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModelFactory

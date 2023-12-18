@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
 import nebraszka.selfaid.data.local.entities.RespondEntity
-import nebraszka.selfaid.enums.ExerciseTypeEn
+import nebraszka.selfaid.ui.enums.ExerciseTypeEn
 class RespondsHandler {
     companion object {
         fun getResponds(recyclerView: RecyclerView, pageId: Int): List<RespondEntity> {

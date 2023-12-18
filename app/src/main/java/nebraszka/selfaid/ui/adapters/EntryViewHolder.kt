@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import nebraszka.selfaid.R
 import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.databinding.RowEntryBinding
-import nebraszka.selfaid.tools.DeleteEntryPickerHandler
-import nebraszka.selfaid.tools.datetools.DateEditor
+import nebraszka.selfaid.ui.tools.DeleteEntryPickerHandler
+import nebraszka.selfaid.ui.tools.datetools.DateEditor
 import nebraszka.selfaid.ui.viewmodels.EntryListViewModel
 
 

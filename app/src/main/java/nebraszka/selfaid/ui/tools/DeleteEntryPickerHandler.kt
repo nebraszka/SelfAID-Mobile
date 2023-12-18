@@ -1,4 +1,4 @@
-package nebraszka.selfaid.tools
+package nebraszka.selfaid.ui.tools
 
 import android.app.Dialog
 import android.content.Context

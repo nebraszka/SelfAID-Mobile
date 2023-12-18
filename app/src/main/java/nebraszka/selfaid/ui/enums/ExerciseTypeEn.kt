@@ -1,4 +1,4 @@
-package nebraszka.selfaid.enums
+package nebraszka.selfaid.ui.enums
 
 import nebraszka.selfaid.R
 
