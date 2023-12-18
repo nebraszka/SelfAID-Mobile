@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.local
+package nebraszka.selfaid.data.repository
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
@@ -7,7 +7,7 @@ import nebraszka.selfaid.data.domain.model.Emotion
 import nebraszka.selfaid.data.local.dao.*
 import nebraszka.selfaid.data.local.entities.*
 
-class SelfAIDLocalRepository(
+class SelfAIDRepository(
     private val emotionDao: EmotionDao,
     private val exerciseDao: ExerciseDao,
     private val entryDao: EntryDao,

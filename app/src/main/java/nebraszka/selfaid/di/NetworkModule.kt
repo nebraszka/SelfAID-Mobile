@@ -7,7 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import nebraszka.selfaid.data.local.entities.EmotionEntityMapper
 import nebraszka.selfaid.data.network.EmotionApiService
-import nebraszka.selfaid.data.network.model.EmotionDtoMapper
+import nebraszka.selfaid.data.network.models.EmotionDtoMapper
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named

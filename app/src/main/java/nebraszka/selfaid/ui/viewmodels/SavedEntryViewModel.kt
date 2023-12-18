@@ -5,12 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import nebraszka.selfaid.data.local.SelfAIDLocalRepository
 import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
+import nebraszka.selfaid.data.repository.SelfAIDRepository
 
-class SavedEntryViewModel(private val repository: SelfAIDLocalRepository) : ViewModel() {
+class SavedEntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
     val allEJExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
     var entryId = MutableLiveData<Long>()
 
@@ -23,7 +23,7 @@ class SavedEntryViewModel(private val repository: SelfAIDLocalRepository) : View
     }
 }
 
-class SavedEntryViewModelFactory(private val repository: SelfAIDLocalRepository) :
+class SavedEntryViewModelFactory(private val repository: SelfAIDRepository) :
     ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

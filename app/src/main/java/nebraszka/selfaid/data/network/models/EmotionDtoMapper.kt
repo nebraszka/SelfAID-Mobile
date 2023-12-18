@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.network.model
+package nebraszka.selfaid.data.network.models
 
 import nebraszka.selfaid.data.domain.DomainMapper
 import nebraszka.selfaid.data.domain.model.Emotion

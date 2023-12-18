@@ -1,4 +1,4 @@
-package nebraszka.selfaid.data.network.model
+package nebraszka.selfaid.data.network.models
 
 import com.google.gson.annotations.SerializedName
 data class EmotionDto (
