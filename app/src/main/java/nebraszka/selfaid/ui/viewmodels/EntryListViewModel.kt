@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import nebraszka.selfaid.data.local.SelfAIDRepository
+import nebraszka.selfaid.data.local.SelfAIDLocalRepository
 
 
 /**
@@ -13,7 +13,7 @@ import nebraszka.selfaid.data.local.SelfAIDRepository
  * - entries - date, title (everything without id)
  * - deleteEntryById
  */
-class EntryListViewModel(private val repository: SelfAIDRepository) : ViewModel() {
+class EntryListViewModel(private val repository: SelfAIDLocalRepository) : ViewModel() {
 
     val allEntries = repository.allEntries.asLiveData()
     fun deleteByEntryId(entryId: Int) = viewModelScope.launch {
@@ -25,7 +25,7 @@ fun deleteEmotionsAPI(){
 
 }
 
-class EntryListViewModelFactory(private val repository: SelfAIDRepository) :
+class EntryListViewModelFactory(private val repository: SelfAIDLocalRepository) :
     ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

@@ -8,13 +8,13 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import nebraszka.selfaid.data.domain.model.Emotion
-import nebraszka.selfaid.data.local.SelfAIDRepository
+import nebraszka.selfaid.data.local.SelfAIDLocalRepository
 import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.data.local.entities.EntryPageEntity
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.data.local.entities.RespondEntity
 
-class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
+class EntryViewModel(private val repository: SelfAIDLocalRepository) : ViewModel() {
     var chosenEmotion: Emotion? = null
     val allEmotions: LiveData<List<Emotion>> = repository.allEmotions.asLiveData()
     val allExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
@@ -44,7 +44,7 @@ class EntryViewModel(private val repository: SelfAIDRepository) : ViewModel() {
         }
     }
 
-    class EntryViewModelFactory(private val repository: SelfAIDRepository) :
+    class EntryViewModelFactory(private val repository: SelfAIDLocalRepository) :
         ViewModelProvider.Factory {
 
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

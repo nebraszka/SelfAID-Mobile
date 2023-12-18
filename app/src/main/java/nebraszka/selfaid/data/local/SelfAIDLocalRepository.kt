@@ -7,7 +7,7 @@ import nebraszka.selfaid.data.domain.model.Emotion
 import nebraszka.selfaid.data.local.dao.*
 import nebraszka.selfaid.data.local.entities.*
 
-class SelfAIDRepository(
+class SelfAIDLocalRepository(
     private val emotionDao: EmotionDao,
     private val exerciseDao: ExerciseDao,
     private val entryDao: EntryDao,
