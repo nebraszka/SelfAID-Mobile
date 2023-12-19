@@ -2,66 +2,32 @@ package nebraszka.selfaid.data.repository
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
-import nebraszka.selfaid.data.domain.model.Emotion
-import nebraszka.selfaid.data.local.dao.*
+import nebraszka.selfaid.data.domain.model.*
 import nebraszka.selfaid.data.local.entities.*
-import nebraszka.selfaid.data.network.SelfAIDNetworkDataSource
 
-class SelfAIDRepository(
-    private val emotionDao: EmotionDao,
-    private val exerciseDao: ExerciseDao,
-    private val entryDao: EntryDao,
-    private val entryPageDao: EntryPageDao,
-    private val respondDao: RespondDao,
-    private val network: SelfAIDNetworkDataSource?
-
-) {
-    // TODO: change to functions
-    val allEntries: Flow<List<EntryEntity>> = entryDao.getAllEntries()
-    val allExercises: Flow<List<ExerciseEntity>> = exerciseDao.getAllExercises()
-
-    private val emotionMapper = EmotionEntityMapper()
-    //TODO: RedundantSuspendModifier
+interface SelfAIDRepository {
 
     @WorkerThread
-    fun getAllEmotions(): Flow<List<Emotion>> {
-        return emotionDao.getAlphabetizedEmotions().map { emotionMapper.mapToDomainModelList(it) }
-    }
+    fun getAllEmotions(): Flow<List<Emotion>>
 
     @WorkerThread
-    fun getEmotion(name: String): Flow<Emotion> {
-        return emotionDao.getEmotion(name).map { emotionMapper.mapToDomainModel(it) }
-    }
-
+    fun getEmotion(name: String): Flow<Emotion>
 
     @WorkerThread
-    suspend fun deleteByEntryId(entryId: Int){
-        return entryDao.deleteByEntryId(entryId)
-    }
+    suspend fun deleteByEntryId(entryId: Int)
 
     @WorkerThread
-    suspend fun insertEntryPage(page: EntryPageEntity): Long {
-        return entryPageDao.insertPage(page)
-    }
+    suspend fun insertEntryPage(page: EntryPageEntity): Long
 
     @WorkerThread
-    suspend fun insertEntry(entry: EntryEntity): Long {
-        return entryDao.insert(entry)
-    }
+    suspend fun insertEntry(entry: EntryEntity): Long
 
     @WorkerThread
-    fun getEntryInfo(entryId: Int): Flow<EntryEntity> {
-        return entryDao.getEntry(entryId)
-    }
+    fun getEntryInfo(entryId: Int): Flow<EntryEntity>
 
     @WorkerThread
-    fun getEntryEmotion(entryId: Int): Flow<EmotionEntity> {
-        return entryDao.getEntryEmotion(entryId)
-    }
+    fun getEntryEmotion(entryId: Int): Flow<EmotionEntity>
 
     @WorkerThread
-    suspend fun insertResponds(responds: List<RespondEntity>) {
-        respondDao.insertAllResponds(responds)
-    }
+    suspend fun insertResponds(responds: List<RespondEntity>)
 }

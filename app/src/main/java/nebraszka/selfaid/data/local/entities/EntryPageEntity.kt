@@ -11,8 +11,8 @@ import androidx.room.PrimaryKey
     tableName = "TB_Entry_Pages",
     foreignKeys = [ForeignKey(
         entity = EmotionEntity::class,
-        parentColumns = arrayOf("id"),
-        childColumns = arrayOf("emotion_id"),
+        parentColumns = arrayOf("emotion"),
+        childColumns = arrayOf("emotion"),
         onDelete = CASCADE
     ), ForeignKey(
         entity = EntryEntity::class,
@@ -25,7 +25,7 @@ data class EntryPageEntity(
     @NonNull
     @ColumnInfo(name = "page_number", index = true) val pageNo: Int,
     @NonNull
-    @ColumnInfo(name = "emotion_id", index = true) val emotionId: Int,
+    @ColumnInfo(name = "emotion") val emotion: String,
     @NonNull
     @ColumnInfo(name = "entry_id", index = true) var entryId: Int
 ) {

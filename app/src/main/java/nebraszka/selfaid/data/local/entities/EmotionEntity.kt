@@ -7,11 +7,9 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "TB_Emotions")
 data class EmotionEntity(
+    @PrimaryKey
     @NonNull
     @ColumnInfo(name = "emotion") val emotion: String,
     @NonNull
     @ColumnInfo(name = "description") val description: String
-) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Int = 0
-}
+)

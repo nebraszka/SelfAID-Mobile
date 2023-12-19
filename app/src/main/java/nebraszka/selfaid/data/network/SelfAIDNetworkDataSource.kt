@@ -11,8 +11,8 @@ interface SelfAIDNetworkDataSource {
     suspend fun getAllEmotions(): Response<AllEmotionGetResponse>
 
     @GET("Emotion/{id}")
-    suspend fun getEmotionById(id: Int): Response<EmotionGetResponse>
+    fun getEmotionById(id: Int): Response<EmotionGetResponse>
 
     @DELETE("Emotion")
-    suspend fun deleteAllEmotions()
+    suspend fun deleteAllEmotions() : Response<AllEmotionGetResponse>
 }

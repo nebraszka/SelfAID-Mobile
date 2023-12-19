@@ -24,13 +24,13 @@ interface EntryDao {
     fun countEntries(): Flow<Int>
 
     @Query(
-        "SELECT pagesWithEmotionInfo.emotion_id AS id," +
+        "SELECT pagesWithEmotionInfo.emotion AS id," +
                 "pagesWithEmotionInfo.emotion, pagesWithEmotionInfo.description " +
                 "FROM TB_EJ_Entries AS entries " +
                 "INNER JOIN (" +
                 "   SELECT * FROM TB_Entry_Pages AS pages" +
                 "   INNER JOIN TB_Emotions AS emotions" +
-                "       ON pages.emotion_id=emotions.id" +
+                "       ON pages.emotion=emotions.emotion" +
                 ") AS pagesWithEmotionInfo " +
                 "   ON pagesWithEmotionInfo.entry_id=entries.id " +
                 "WHERE entries.id=:entryId"

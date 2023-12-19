@@ -6,7 +6,6 @@ import nebraszka.selfaid.data.domain.model.Emotion
 class EmotionEntityMapper : DomainMapper<EmotionEntity, Emotion> {
     override fun mapToDomainModel(model: EmotionEntity): Emotion {
         return Emotion().apply {
-            id = model.id
             emotion = model.emotion
             description = model.description
         }

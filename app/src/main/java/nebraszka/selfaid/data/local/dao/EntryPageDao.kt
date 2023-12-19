@@ -13,7 +13,7 @@ interface EntryPageDao {
     @Query(
         "SELECT emotions.* FROM TB_Entry_Pages AS pages " +
                 "INNER JOIN TB_Emotions AS emotions " +
-                "ON pages.emotion_id=emotions.id " +
+                "ON pages.emotion=emotions.emotion " +
                 "WHERE pages.id=:pageId"
     )
     fun getEmotion(pageId: Int): Flow<EmotionEntity>

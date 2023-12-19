@@ -3,18 +3,16 @@ package nebraszka.selfaid.ui.viewmodels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import nebraszka.selfaid.data.local.entities.EmotionEntity
 import nebraszka.selfaid.data.local.entities.EntryEntity
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
-import nebraszka.selfaid.data.repository.SelfAIDRepository
+import nebraszka.selfaid.data.repository.SelfAIDRepositoryImpl
 import javax.inject.Inject
 
 @HiltViewModel
-class SavedEntryViewModel @Inject constructor(private val repository: SelfAIDRepository) : ViewModel() {
+class SavedEntryViewModel @Inject constructor(private val repository: SelfAIDRepositoryImpl) : ViewModel() {
     val allEJExercises: LiveData<List<ExerciseEntity>> = repository.allExercises.asLiveData()
     var entryId = MutableLiveData<Long>()
 

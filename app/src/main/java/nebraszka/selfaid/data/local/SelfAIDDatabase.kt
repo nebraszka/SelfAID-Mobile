@@ -28,7 +28,7 @@ import nebraszka.selfaid.data.local.entities.RespondEntity
         EntryEntity::class,
         EntryPageEntity::class,
         RespondEntity::class
-    ], version = 15, exportSchema = false // TODO: Do zmiany potem
+    ], version = 21, exportSchema = false // TODO: Do zmiany potem
 )
 abstract class SelfAIDDatabase : RoomDatabase() {
     abstract fun emotionDao(): EmotionDao

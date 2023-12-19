@@ -10,8 +10,10 @@ import nebraszka.selfaid.data.local.SelfAIDDatabase
 import nebraszka.selfaid.data.local.entities.ExerciseEntity
 import nebraszka.selfaid.databinding.RowAnswerBinding
 import nebraszka.selfaid.ui.enums.ExerciseTypeEn
+import javax.inject.Inject
 
-class AnswersViewHolder(private val binding: RowAnswerBinding, private val entryId: Int) :
+
+class AnswersViewHolder @Inject constructor(private val binding: RowAnswerBinding, private val entryId: Int) :
     RecyclerView.ViewHolder(binding.root) {
 
     private val database = SelfAIDDatabase.getDatabase(itemView.context)

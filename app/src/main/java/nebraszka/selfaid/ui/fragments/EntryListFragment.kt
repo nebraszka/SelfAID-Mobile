@@ -65,6 +65,8 @@ class EntryListFragment : Fragment() {
         ViewVisibilityManager.manage(binding.rvEntriesList, true)
 
         binding.btnNewEntry.setOnClickListener {
+            // TODO DELETE its for debug
+//            viewModel.deleteAllEmotions()
             findNavController().navigate(R.id.action_entryListFragment_to_newEntryFragment)
 
 //            val call = (activity?.application as SelfAIDApplication).retrofitService.deleteEmotion()

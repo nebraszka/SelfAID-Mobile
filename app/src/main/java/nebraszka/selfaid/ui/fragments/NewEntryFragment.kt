@@ -44,9 +44,15 @@ class NewEntryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.entryId.observe(viewLifecycleOwner){ entryId ->
+        viewModel.entryId.observe(viewLifecycleOwner) { entryId ->
             if (entryId != null) {
-                viewModel.addPage(EntryPageEntity(1, viewModel.chosenEmotion?.id ?: 1, entryId.toInt()))
+                viewModel.addPage(
+                    EntryPageEntity(
+                        1,
+                        viewModel.chosenEmotion?.emotion!!,
+                        entryId.toInt()
+                    )
+                )
             }
         }
 
@@ -58,7 +64,7 @@ class NewEntryFragment : Fragment() {
                         pageId.toInt()
                     ) as MutableList<RespondEntity>
                 )
-            findNavController().navigate(R.id.action_newEntryFragment_to_entryListFragment)
+                findNavController().navigate(R.id.action_newEntryFragment_to_entryListFragment)
             }
         }
 
@@ -103,9 +109,10 @@ class NewEntryFragment : Fragment() {
     private fun setUpEmotionSection() {
         binding.spnEmotions.onItemSelectedListener = EmotionSelectedListener(viewModel, this)
 
-        viewModel.allEmotions.observe(viewLifecycleOwner) {
-            context?.let { it1 ->
-                EmotionSectionManager.initiateEmotionSpinner(it1, it, binding.spnEmotions)
+        viewModel.emotions.observe(viewLifecycleOwner) { emotions ->
+            // Update the spinner with the new data
+            context?.let { context ->
+                EmotionSectionManager.initiateEmotionSpinner(context, emotions, binding.spnEmotions)
             }
         }
 

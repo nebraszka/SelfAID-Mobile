@@ -2,12 +2,16 @@ package nebraszka.selfaid.data.network.models
 
 import nebraszka.selfaid.data.domain.DomainMapper
 import nebraszka.selfaid.data.domain.model.Emotion
+import nebraszka.selfaid.data.local.entities.EmotionEntity
+import nebraszka.selfaid.data.local.entities.EntityMapper
 
-class EmotionDtoMapper : DomainMapper<EmotionDto, Emotion> {
+class EmotionDtoMapper : DomainMapper<EmotionDto, Emotion>,
+    EntityMapper<EmotionDto, EmotionEntity> {
+
+    // DomainMapper
     override fun mapToDomainModel(dto: EmotionDto): Emotion {
         return Emotion().apply {
-            id = dto.id
-            emotion = dto.emotion
+            emotion = dto.name
             description = dto.description
         }
     }
@@ -19,13 +23,35 @@ class EmotionDtoMapper : DomainMapper<EmotionDto, Emotion> {
     // TODO May be to remove
     override fun mapFromDomainModel(emotion: Emotion): EmotionDto {
         return EmotionDto(
-            id = emotion.id ?: 0,
-            emotion = emotion.emotion ?: "",
+            name = emotion.emotion ?: "",
             description = emotion.description ?: ""
         )
     }
 
     override fun mapFromDomainModelList(domainModels: List<Emotion>): List<EmotionDto> {
         return domainModels.map { mapFromDomainModel(it) }
+    }
+
+    // EntityMapper
+    override fun mapToEntityModel(model: EmotionDto): EmotionEntity {
+        return EmotionEntity(
+            emotion = model.name ?: "",
+            description = model.description ?: ""
+        )
+    }
+
+    override fun mapToEntityModelList(models: List<EmotionDto>): List<EmotionEntity> {
+        return models.map { mapToEntityModel(it) }
+    }
+
+    override fun mapFromEntityModel(domainModel: EmotionEntity): EmotionDto {
+        return EmotionDto(
+            name = domainModel.emotion ?: "",
+            description = domainModel.description ?: ""
+        )
+    }
+
+    override fun mapFromEntityModelList(domainModels: List<EmotionEntity>): List<EmotionDto> {
+        return domainModels.map { mapFromEntityModel(it) }
     }
 }
